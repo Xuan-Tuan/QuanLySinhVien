@@ -1,9 +1,10 @@
 import "./App.css";
+import LogIn from "./views/Authentication/LogIn";
 
 const App = () => {
   return (
-    <div className="app-container">
-      <h1>Quản lý sinh viên</h1>
+    <div>
+      <LogIn />
     </div>
   );
 };
