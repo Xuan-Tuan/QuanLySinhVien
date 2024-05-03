@@ -6,11 +6,11 @@ const Parent = ({ children }) => {
   return (
     <>
       <div className="flex flex-col m-0">
-        <div className="">
+        <div>
           <HeaderUser role="Parent" />
         </div>
-        <div className="">{children}</div>
-        <div className="">
+        <div>{children}</div>
+        <div>
           <Footer />
         </div>
       </div>

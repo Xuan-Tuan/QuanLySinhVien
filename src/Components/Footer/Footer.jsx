@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <div>
-      <footer class="bg-uit pb-2 pt-1 text-white flex  justify-between text-xs lg:text-sm fixed bottom-0 left-0 right-0 h-[50px]">
+      <footer className="bg-uit pb-2 pt-1 text-white flex  justify-between text-xs lg:text-sm fixed bottom-0 left-0 right-0 h-[50px]">
         <div className="flex justify-between text-center">
           <div className="border-r-2 uppercase pr-6 mr-6">
             Hệ thống <br />

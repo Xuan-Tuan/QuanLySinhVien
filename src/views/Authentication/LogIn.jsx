@@ -1,71 +1,101 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/LOGO.png";
-const users = [
-  {
-    id: 4,
-    name: "tuan",
-    email: "student@gmail.com",
-    password: "stu123",
-    role: "student",
-  },
-  {
-    id: 3,
-    name: "tien",
-    email: "lecturer@gmail.com",
-    password: "Lecture123",
-    role: "lecturer",
-  },
-  {
-    id: 2,
-    name: "vu",
-    email: "parent@gmail.com",
-    password: "parent123",
-    role: "parent",
-  },
-  {
-    id: 1,
-    name: "thien",
-    email: "admin@gmail.com",
-    password: "admin123",
-    role: "admin",
-  },
-];
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+
+// const users = [
+//   {
+//     id: 4,
+//     name: "tuan",
+//     email: "student@gmail.com",
+//     password: "stu123",
+//     role: "student",
+//   },
+//   {
+//     id: 3,
+//     name: "tien",
+//     email: "lecturer@gmail.com",
+//     password: "Lecture123",
+//     role: "lecturer",
+//   },
+//   {
+//     id: 2,
+//     name: "vu",
+//     email: "parent@gmail.com",
+//     password: "parent123",
+//     role: "parent",
+//   },
+//   {
+//     id: 1,
+//     name: "thien",
+//     email: "admin@gmail.com",
+//     password: "admin123",
+//     role: "admin",
+//   },
+// ];
 
 const LogIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-
-  const handleLogin = () => {
-    const user = users.find((user) => user.email === email);
-
-    if (user) {
-      if (user.password === password) {
-        switch (user.role) {
-          case "student":
-            alert("Đăng nhập student account");
-            break;
-          case "lecturer":
-            alert("Đăng nhập Lecture account");
-            break;
-          case "parent":
-            alert("Đăng nhập parent account");
-            break;
-          case "admin":
-            alert("Đăng nhập admin account");
-            break;
-          default:
-            break;
-        }
-      } else {
-        setError("email hoặc mật khẩu không hợp lệ");
+  const [loginError, setLoginError] = useState("");
+  const navigate = useNavigate();
+  // const handleLogin = () => {
+  //   const user = users.find((user) => user.email === email);
+  //   if (user) {
+  //     if (user.password === password) {
+  //       switch (user.role) {
+  //         case "student":
+  //           alert("Đăng nhập student account");
+  //           break;
+  //         case "lecturer":
+  //           alert("Đăng nhập Lecture account");
+  //           break;
+  //         case "parent":
+  //           alert("Đăng nhập parent account");
+  //           break;
+  //         case "admin":
+  //           alert("Đăng nhập admin account");
+  //           break;
+  //         default:
+  //           break;
+  //       }
+  //     } else {
+  //       setError("email hoặc mật khẩu không hợp lệ");
+  //     }
+  //   } else {
+  //     setError("Không tìm thấy tài khoản");
+  //   }
+  // };
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const auth = getAuth();
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+      console.log(user.displayName);
+      navigate("/Student", { state: { name: user.displayName } });
+    } catch (error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // console.error("Login error:", errorCode, errorMessage);
+      switch (errorCode) {
+        case "auth/invalid-credential":
+          setLoginError("Tài khoản không tồn tại");
+          break;
+        case "auth/invalid-credentialll":
+          setLoginError("Mật khẩu không chính xác. Vui lòng thử lại");
+          break;
+        default:
+          setLoginError("Lỗi trong quá trình đăng nhập. Vui lòng thử lại");
+          break;
       }
-    } else {
-      setError("Không tìm thấy tài khoản");
     }
   };
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="container h-auto lg:w-2/6 lg:auto my-8 mx-auto px-12 py-12 flex flex-col justify-center border-4 rounded-3xl  bg-white shadow-md">
@@ -132,7 +162,7 @@ const LogIn = () => {
                 Đăng nhập
               </button>
             </div>
-            {error && <p className="text-red-500 text-sm">{error}</p>}
+            {loginError && <p className="text-red-500 text-sm">{loginError}</p>}
           </form>
 
           <p className="mt-10 text-center text-sm text-gray-500">

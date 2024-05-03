@@ -6,11 +6,11 @@ const Lecturer = ({ children }) => {
   return (
     <>
       <div class="flex flex-col  m-0">
-        <div class="">
+        <div>
           <HeaderUser role="Lecturer" />
         </div>
-        <div class="">{children}</div>
-        <div class="">
+        <div>{children}</div>
+        <div>
           <Footer />
         </div>
       </div>

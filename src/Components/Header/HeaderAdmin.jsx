@@ -9,12 +9,12 @@ const HeaderAdmin = () => {
         <div className="ml-2 mr-8 w-16">
           <img src={Logo} alt="LOGO" />
         </div>
-        <div class="flex flex-col text-while text-xs lg:text-base font-bold text-center uppercase mr-2">
+        <div className="flex flex-col text-while text-xs lg:text-base font-bold text-center uppercase mr-2">
           <div>Hệ thống quản lý</div> <div>sinh viên</div>
         </div>
       </div>
-      <div class="flex items-center justify-between ">
-        <nav class="text-white flex flex-row items-center justify-between text-xs lg:text-base font-bold ">
+      <div className="flex items-center justify-between ">
+        <nav className="text-white flex flex-row items-center justify-between text-xs lg:text-base font-bold ">
           <div className="mr-12">
             <NavLink
               to="/Admin/ManageLectures"
