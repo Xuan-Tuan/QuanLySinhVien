@@ -77,15 +77,32 @@ const LogIn = () => {
         password
       );
       const user = userCredential.user;
-      console.log(user.displayName);
-      navigate("/Student", { state: { name: user.displayName } });
+      // console.log(user);
+      // console.log(user.uid);
+      if (user) {
+        localStorage.setItem("info", user.displayName);
+        localStorage.setItem("uid", user.uid);
+        user
+          .getIdTokenResult()
+          .then((idTokenResult) => {
+            // console.log(idTokenResult.claims.role);
+            const role = idTokenResult.claims.role;
+            // console.log(role);
+            navigate(`/${role}`);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
     } catch (error) {
       const errorCode = error.code;
       const errorMessage = error.message;
       // console.error("Login error:", errorCode, errorMessage);
       switch (errorCode) {
         case "auth/invalid-credential":
-          setLoginError("Tài khoản không tồn tại");
+          setLoginError(
+            "Tài khoản hoặc mật khẩu không chính xác. vui lòng thử lại"
+          );
           break;
         case "auth/invalid-credentialll":
           setLoginError("Mật khẩu không chính xác. Vui lòng thử lại");
