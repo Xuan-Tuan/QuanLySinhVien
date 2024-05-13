@@ -1,10 +1,11 @@
 import React from "react";
 import Student from "./Student";
+import DetailSubject from "../../Components/Subject/DetailSubject";
 const StuDetailSubject = () => {
   return (
     <div>
       <Student>
-        <div>Detail Subject Student</div>
+        <DetailSubject />
       </Student>
     </div>
   );

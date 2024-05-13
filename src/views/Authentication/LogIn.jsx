@@ -82,11 +82,13 @@ const LogIn = () => {
       if (user) {
         localStorage.setItem("info", user.displayName);
         localStorage.setItem("uid", user.uid);
+        localStorage.setItem("email", user.email);
         user
           .getIdTokenResult()
           .then((idTokenResult) => {
             // console.log(idTokenResult.claims.role);
             const role = idTokenResult.claims.role;
+            localStorage.setItem("role", role);
             // console.log(role);
             navigate(`/${role}`);
           })

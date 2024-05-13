@@ -2,12 +2,15 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../../assets/LOGO.png";
 import { RiAccountCircleFill } from "react-icons/ri";
+import UserProfile from "../Account/UserProfile";
 const HeaderAdmin = () => {
   return (
     <header className="bg-uit text-white flex items-center justify-between p-2 fixed top-0 left-0 right-0 h-[60px]">
       <div className="flex items-center">
         <div className="ml-2 mr-8 w-16">
-          <img src={Logo} alt="LOGO" />
+          <NavLink to={`/Admin`}>
+            <img src={Logo} alt="LOGO" />
+          </NavLink>
         </div>
         <div className="flex flex-col text-while text-xs lg:text-base font-bold text-center uppercase mr-2">
           <div>Hệ thống quản lý</div> <div>sinh viên</div>
@@ -69,7 +72,7 @@ const HeaderAdmin = () => {
       </div>
       <div className="ml-6 mr-12">
         <NavLink to={`/Admin/Account`}>
-          <RiAccountCircleFill size={56} />
+          <UserProfile />
         </NavLink>
       </div>
     </header>

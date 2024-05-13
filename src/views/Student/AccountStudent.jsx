@@ -1,10 +1,11 @@
 import React from "react";
 import Student from "./Student";
+import AccountInfor from "../../Components/Account/AccountInfor";
 const AccountStudent = () => {
   return (
     <div>
       <Student>
-        <div>Account Student</div>
+        <AccountInfor />
       </Student>
     </div>
   );

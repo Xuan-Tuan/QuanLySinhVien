@@ -1,15 +1,17 @@
 import React from "react";
 import Logo from "../../assets/LOGO.png";
-// import { RiAccountCircleFill } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
 import UserProfile from "../Account/UserProfile";
 
 const HeaderUser = ({ role }) => {
+  console.log("header", role);
   return (
-    <header className="bg-uit text-white flex items-center justify-between p-2">
+    <header className="bg-uit h-[70px] text-white flex items-center justify-between p-2">
       <div className="flex items-center">
         <div className="ml-2 mr-8 w-16">
-          <img src={Logo} alt="LOGO" />
+          <NavLink to={`/${role}`}>
+            <img src={Logo} alt="LOGO" />
+          </NavLink>
         </div>
         <div className="flex flex-col text-while text-xs lg:text-base font-bold text-center uppercase mr-2">
           <div>Hệ thống quản lý</div> <div>sinh viên</div>
@@ -60,7 +62,6 @@ const HeaderUser = ({ role }) => {
         </div>
         <div className="ml-6 mr-12">
           <NavLink to={`/${role}/Account`} className="6">
-            {/* <RiAccountCircleFill size={56} /> */}
             <UserProfile />
           </NavLink>
         </div>

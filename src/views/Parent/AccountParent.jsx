@@ -1,10 +1,12 @@
 import React from "react";
 import Parent from "./Parent";
+import AccountInfor from "../../Components/Account/AccountInfor";
+
 const AccountParent = () => {
   return (
     <div>
       <Parent>
-        <div>Account Parent</div>
+        <AccountInfor />
       </Parent>
     </div>
   );

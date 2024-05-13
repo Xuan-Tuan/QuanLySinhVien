@@ -54,12 +54,14 @@ const routes = [
   { path: "/Student/DetailSubject", component: StuDetailSubject },
   { path: "/Student/ListSubject", component: StuListSubject },
   { path: "/Student/Notification", component: StuNotification },
+  { path: "/Student/DetailSubject/:id", component: StuDetailSubject },
   // Parent
   { path: "/Parent/Account", component: AccountParent },
   { path: "/Parent", component: ParListSubject },
   { path: "/Parent/DetailSubject", component: ParDetailSubject },
   { path: "/Parent/ListSubject", component: ParListSubject },
   { path: "/Parent/Notification", component: ParNotification },
+  { path: "/Parent/DetailSubject/:id", component: ParDetailSubject },
 ];
 
 export default routes;

@@ -1,10 +1,11 @@
 import React from "react";
 import Parent from "./Parent";
+import ListSubject from "../../Components/Subject/ListSubject";
 const ParListSubject = () => {
   return (
     <div>
       <Parent>
-        <div>List Subject parent</div>
+        <ListSubject />
       </Parent>
     </div>
   );
