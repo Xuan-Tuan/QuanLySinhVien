@@ -7,7 +7,7 @@ const Parent = ({ children }) => {
     <>
       <div className="flex flex-col m-0">
         <div>
-          <HeaderUser role="Parent" />
+          <HeaderUser />
         </div>
         <div>{children}</div>
         <div>

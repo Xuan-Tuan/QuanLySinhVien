@@ -3,7 +3,8 @@ import Logo from "../../assets/LOGO.png";
 import { NavLink } from "react-router-dom";
 import UserProfile from "../Account/UserProfile";
 
-const HeaderUser = ({ role }) => {
+const role = localStorage.getItem("role");
+const HeaderUser = () => {
   console.log("header", role);
   return (
     <header className="bg-uit h-[70px] text-white flex items-center justify-between p-2">

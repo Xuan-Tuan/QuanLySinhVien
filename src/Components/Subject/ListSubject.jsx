@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { IoArrowForwardCircleOutline } from "react-icons/io5";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   collection,
   getDocs,
@@ -9,7 +10,6 @@ import {
   where,
 } from "firebase/firestore";
 import { db } from "../../Config/firestore";
-import { useLocation, useNavigate } from "react-router-dom";
 
 const uid = localStorage.getItem("uid");
 const role = localStorage.getItem("role");
@@ -37,7 +37,7 @@ if (role === "student") {
     querySnapshot?.forEach((doc) => {
       // console.log(doc.data().courseID);
       courseStu.push(doc.data().courseID);
-      console.log("Môn học của con của bố ", courseStu);
+      // console.log("Môn học của con của bố ", courseStu);
     });
   };
   const q = query(collection(db, "student"), where("parentID", "==", `${uid}`));
@@ -63,7 +63,7 @@ const ListSubject = () => {
     const docRef = doc(db, "course", courseID);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-      console.log("Dữ liệu môn học => ", docSnap.data());
+      // console.log("Dữ liệu môn học => ", docSnap.data());
       // setName(docSnap.data().name);
       // setStartDay(docSnap.data().startDay);
       const startDay = docSnap.data().startDay.toDate(); // Convert to JavaScript Date object
@@ -86,7 +86,7 @@ const ListSubject = () => {
         week: docSnap.data().week,
         lecturerName: lecturerName,
       });
-      console.log("Dữ liệu Thông tin hiển thị => ", temp1);
+      // console.log("Dữ liệu Thông tin hiển thị => ", temp1);
 
       setListCourse([...listCourse, ...temp1]);
     } else {

@@ -43,8 +43,8 @@ const AccountInfor = () => {
     }
   }, [role, uid]);
   return (
-    <div className="h-[calc(100vh-60px-50px-64px-64px)] flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className=" text-base h-12 font-bold text-left align-middle pl-10 text-blue-700 text">
+    <div className="h-[calc(100vh-60px-50px-64px-64px)] flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8 space-y-6">
+      <div className=" text-lg font-bold text-left align-middle pl-10 text-blue-700 ">
         Tài khoản của bạn
       </div>
       <div className=" flext flex-col space-y-4 p-4 bg-gray-100 rounded-xl py-8 px-6">

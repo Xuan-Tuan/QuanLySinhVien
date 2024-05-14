@@ -7,7 +7,7 @@ const Student = ({ children }) => {
     <>
       <div className="flex flex-col m-0">
         <div className="">
-          <HeaderUser role="Student" />
+          <HeaderUser />
         </div>
         <div className="">{children}</div>
         <div className="">
