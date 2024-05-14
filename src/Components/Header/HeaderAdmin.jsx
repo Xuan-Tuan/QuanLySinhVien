@@ -1,77 +1,44 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../../assets/LOGO.png";
-import { RiAccountCircleFill } from "react-icons/ri";
 import UserProfile from "../Account/UserProfile";
+
 const HeaderAdmin = () => {
+  const navLinkClass = ({ isActive }) =>
+    isActive ? "text-red-500" : "text-white";
+
   return (
-    <header className="bg-uit text-white flex items-center justify-between p-2 fixed top-0 left-0 right-0 h-[60px]">
+    <header className="bg-uit h-[70px] text-white flex items-center justify-between p-2 fixed top-0 left-0 right-0">
       <div className="flex items-center">
         <div className="ml-2 mr-8 w-16">
-          <NavLink to={`/Admin`}>
+          <NavLink to="/Admin">
             <img src={Logo} alt="LOGO" />
           </NavLink>
         </div>
-        <div className="flex flex-col text-while text-xs lg:text-base font-bold text-center uppercase mr-2">
-          <div>Hệ thống quản lý</div> <div>sinh viên</div>
+        <div className="flex flex-col text-white text-xs lg:text-base font-bold text-center uppercase mr-2">
+          <div>Hệ thống quản lý</div>
+          <div>sinh viên</div>
         </div>
       </div>
-      <div className="flex items-center justify-between ">
-        <nav className="text-white flex flex-row items-center justify-between text-xs lg:text-base font-bold ">
-          <div className="mr-12">
-            <NavLink
-              to="/Admin/ManageLectures"
-              style={({ isActive }) => ({
-                color: isActive ? "red" : "white",
-              })}
-            >
-              Giáo viên
-            </NavLink>
-          </div>
-          <div className="mr-12">
-            <NavLink
-              to="/Admin/ManageStudent"
-              style={({ isActive }) => ({
-                color: isActive ? "red" : "white",
-              })}
-            >
-              Sinh viên
-            </NavLink>
-          </div>
-          <div className="mr-12">
-            <NavLink
-              to="/Admin/ManageParent"
-              style={({ isActive }) => ({
-                color: isActive ? "red" : "white",
-              })}
-            >
-              Phụ huynh
-            </NavLink>
-          </div>
-          <div className="mr-12">
-            <NavLink
-              to="/Admin/ManageSubjects"
-              style={({ isActive }) => ({
-                color: isActive ? "red" : "white",
-              })}
-            >
-              Môn học
-            </NavLink>
-          </div>
-          <div className="mr-12">
-            <NavLink
-              to="/Admin/Notification"
-              style={({ isActive }) => ({
-                color: isActive ? "red" : "white",
-              })}
-            >
-              Thông báo
-            </NavLink>
-          </div>
-        </nav>
-      </div>
+      <nav className="text-white flex flex-row items-center text-xs lg:text-base font-bold space-x-12">
+        <NavLink to="/Admin/ManageLectures" className={navLinkClass}>
+          Giáo viên
+        </NavLink>
+        <NavLink to="/Admin/ManageStudent" className={navLinkClass}>
+          Sinh viên
+        </NavLink>
+        <NavLink to="/Admin/ManageParent" className={navLinkClass}>
+          Phụ huynh
+        </NavLink>
+        <NavLink to="/Admin/ManageSubjects" className={navLinkClass}>
+          Môn học
+        </NavLink>
+        <NavLink to="/Admin/Notification" className={navLinkClass}>
+          Thông báo
+        </NavLink>
+      </nav>
       <div className="ml-6 mr-12">
-        <NavLink to={`/Admin/Account`}>
+        <NavLink to="/Admin/Account">
           <UserProfile />
         </NavLink>
       </div>

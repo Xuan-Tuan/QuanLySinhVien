@@ -7,9 +7,9 @@ const Lecturer = ({ children }) => {
     <>
       <div class="flex flex-col  m-0">
         <div>
-          <HeaderUser role="Lecturer" />
+          <HeaderUser />
         </div>
-        <div>{children}</div>
+        <div className="mt-[70px] mb-[50px]">{children}</div>
         <div>
           <Footer />
         </div>

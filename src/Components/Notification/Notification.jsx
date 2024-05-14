@@ -2,8 +2,8 @@ import React from "react";
 import { IoArrowForwardCircleOutline } from "react-icons/io5";
 const Notification = () => {
   return (
-    <div className="h-[calc(100vh-60px-50px)]">
-      <div className=" text-base h-12 font-bold text-left align-middle pl-10 text-blue-700 text">
+    <div className="h-[calc(100vh-70px-50px)]">
+      <div className=" text-base h-12 mt-8 font-bold text-left align-middle pl-10 text-blue-700 text">
         Thông báo sinh viên
       </div>
       <div className="h-[calc(100vh-60px-50px-64px-64px)] ml-20 mr-60  bg-gray-100 shadow-md flex flex-col gap-5 p-5 overflow-y-scroll will-change-scroll">

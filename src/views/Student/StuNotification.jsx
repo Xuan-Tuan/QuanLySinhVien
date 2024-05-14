@@ -6,7 +6,9 @@ const StuNotification = () => {
   return (
     <div>
       <Student>
-        <Notification />
+        <div>
+          <Notification />
+        </div>
       </Student>
     </div>
   );

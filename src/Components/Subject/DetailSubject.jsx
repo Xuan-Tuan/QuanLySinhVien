@@ -153,34 +153,48 @@ const DetailSubject = () => {
   }
 
   return (
-    <div className="h-[calc(100vh-60px-50px-64px-64px)] flex flex-row flex-wrap justify-evenly items-center">
-      <div className="flex flex-col justify-start items-center space-y-6">
-        <h2 className="text-base text-uit text-center font-semibold ">
+    <div className="h-[calc(100vh-70px-50px)] flex flex-row justify-evenly ">
+      <div className="flex flex-col justify-start items-center space-y-6 mt-8">
+        <h2 className="text-lg text-uit font-semibold text-center">
           Môn học: {course.name}
         </h2>
-        <div className=" border border-uit rounded-lg shadow-lg lg:min-w-96 min-h-80  p-6 ">
-          <div className=" flex flex-col justify-between text-left space-y-4">
-            <div>Giáo viên: {course.lecturerName} </div>
-            <div>Ngày bắt đầu: {course.startDay}</div>
-            <div>Tuần Học: {course.week} Tuần</div>
-            <div>Phòng học: {course.roomID}</div>
+        <div className="flex  items-center justify-center border border-uit rounded-lg shadow-lg px-6 py-6 min-w-80 min-h-80 lg:min-w-96 lg:min-h-96">
+          <div className="flex flex-col space-y-4">
+            <div>
+              <span className="font-semibold">Giáo viên:</span>{" "}
+              {course.lecturerName}
+            </div>
+            <div>
+              <span className="font-semibold">Ngày bắt đầu:</span>{" "}
+              {course.startDay}
+            </div>
+            <div>
+              <span className="font-semibold">Tuần Học:</span> {course.week}{" "}
+              Tuần
+            </div>
+            <div>
+              <span className="font-semibold">Phòng học:</span> {course.roomID}
+            </div>
           </div>
         </div>
       </div>
-      <div className="flex flex-col justify-start items-center space-y-6  ">
-        <h2 className="text-base text-center text-uit font-semibold ">
+
+      <div className="flex flex-col justify-start items-center space-y-6 mt-8">
+        <h2 className="text-lg text-uit font-semibold text-center">
           Thông tin lịch học hôm nay
         </h2>
-        <div className="border border-uit rounded-lg shadow-lg lg:min-w-96 min-h-80  p-6">
-          <div className="flex flex-col justify-between text-left space-y-4">
-            <div>Online URL: {course.onlineURL}</div>
-
+        <div className="flex  items-center justify-center border border-uit rounded-lg shadow-lg px-6 py-6 min-w-80 min-h-80 lg:min-w-96 lg:min-h-96 ">
+          <div className="flex flex-col space-y-4">
+            <div>
+              <span className="font-semibold">Online URL:</span>{" "}
+              {course.onlineURL}
+            </div>
             {schedule.length > 0 ? (
               schedule.map((schedule) => (
                 <div key={schedule.id}>
                   {schedule.date ? (
                     <div className="">
-                      Lịch học ngày:{" "}
+                      <span className="font-semibold">Lịch học ngày:</span>{" "}
                       {new Date(
                         schedule.date.seconds * 1000
                       ).toLocaleDateString()}
@@ -188,17 +202,26 @@ const DetailSubject = () => {
                   ) : (
                     <div>Không có thông tin ngày học.</div>
                   )}
-                  <div> Từ: {schedule.startTime}</div>
-                  <div> Đến: {schedule.endTime}</div>
+                  <div>
+                    <span className="font-semibold">Từ:</span>{" "}
+                    {schedule.startTime}
+                  </div>
+                  <div>
+                    <span className="font-semibold">Đến:</span>{" "}
+                    {schedule.endTime}
+                  </div>
                 </div>
               ))
             ) : (
               <div>Không có lịch học hôm nay.</div>
             )}
-            <div>Trạng thái giáo viên: Có </div>
             <div>
-              Trạng thái điểm danh: {attendanceStats.attended}/
-              {attendanceStats.missed}/{attendanceStats.total}
+              <span className="font-semibold">Trạng thái giáo viên:</span> Có
+            </div>
+            <div>
+              <span className="font-semibold">Trạng thái điểm danh:</span>{" "}
+              {attendanceStats.attended}/{attendanceStats.missed}/
+              {attendanceStats.total}
             </div>
           </div>
         </div>

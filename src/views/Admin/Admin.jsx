@@ -6,7 +6,7 @@ const Admin = ({ children }) => {
   return (
     <>
       <HeaderAdmin />
-      <div className="mt-[60px] mb-[50px]">{children}</div>
+      <div className="mt-[70px] mb-[50px]">{children}</div>
       <Footer />
     </>
   );
