@@ -1,10 +1,11 @@
 import React from "react";
 import Lecturer from "./Lecturer";
+import Notification from "../../Components/Notification/Notification";
 const LecNotification = () => {
   return (
     <div>
       <Lecturer>
-        <div>Notification Lecturer</div>
+        <Notification />
       </Lecturer>
     </div>
   );

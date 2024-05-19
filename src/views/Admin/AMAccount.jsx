@@ -1,11 +1,12 @@
 import React from "react";
 import Admin from "./Admin";
+import AccountInfor from "../../Components/Account/AccountInfor";
 
 const AMAccount = () => {
   return (
     <div>
       <Admin>
-        <div>Account Admin</div>
+        <AccountInfor></AccountInfor>
       </Admin>
     </div>
   );

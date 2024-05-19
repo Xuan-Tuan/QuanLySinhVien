@@ -1,11 +1,12 @@
 import React from "react";
 import Lecturer from "./Lecturer";
+import AccountInfor from "../../Components/Account/AccountInfor";
 
 const AccountLecturer = () => {
   return (
     <div>
       <Lecturer>
-        <div>Account Lecturer</div>
+        <AccountInfor />
       </Lecturer>
     </div>
   );

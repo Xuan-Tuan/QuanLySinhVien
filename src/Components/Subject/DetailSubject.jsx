@@ -61,8 +61,6 @@ const DetailSubject = () => {
   const uid = localStorage.getItem("uid");
   const role = localStorage.getItem("role");
 
-  const scheduleUID = schedule[0].id;
-
   const GetAll = async () => {
     const querySnapshot = await getDocs(collection(db, "attendance"));
     querySnapshot.forEach((doc) => {
@@ -92,11 +90,12 @@ const DetailSubject = () => {
         where("courseID", "==", courseID)
       );
       const querySnapshot = await getDocs(attendanceQuery);
+      console.log("Dữ liệu lịch học hôm nay==>", querySnapshot);
       const data = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       }));
-
+      console.log("Tất cả lịch học của môn ==>", data);
       const filteredData = data.filter(
         (record) => record.studentID === studentID
       );
@@ -215,9 +214,7 @@ const DetailSubject = () => {
             ) : (
               <div>Không có lịch học hôm nay.</div>
             )}
-            <div>
-              <span className="font-semibold">Trạng thái giáo viên:</span> Có
-            </div>
+
             <div>
               <span className="font-semibold">Trạng thái điểm danh:</span>{" "}
               {attendanceStats.attended}/{attendanceStats.missed}/

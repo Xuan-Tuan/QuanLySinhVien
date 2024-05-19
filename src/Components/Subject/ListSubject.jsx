@@ -13,13 +13,14 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const ListSubject = () => {
   const [listCourse, setListCourse] = useState([]);
-  const [courseStu, setCourseStu] = useState([]); // Sử dụng useState để quản lý danh sách khóa học của sinh viên
+  const [courseStu, setCourseStu] = useState([]); // quản lý danh môn học của sinh viên
   const location = useLocation();
   const navigate = useNavigate();
+
   const uid = localStorage.getItem("uid");
   const role = localStorage.getItem("role");
 
-  // Lấy danh sách khóa học của sinh viên hoặc phụ huynh
+  // Lấy danh sách môn học của sinh viên hoặc phụ huynh
   useEffect(() => {
     const fetchCourseStu = async () => {
       if (role === "student") {
@@ -52,9 +53,10 @@ const ListSubject = () => {
           where("parentID", "==", uid)
         );
         const querySnapshot = await getDocs(q);
+        console.log("Danh sách dữ liệu sinh viên ==> ", querySnapshot);
         const allCourses = [];
         for (const doc of querySnapshot.docs) {
-          const studentUID = doc.data().studentUID;
+          const studentUID = doc.data().studentUID; // CHƯA SỬA
           localStorage.setItem("t", doc.data().name);
           const studentCourses = await getStudentCourses(studentUID);
           allCourses.push(...studentCourses);

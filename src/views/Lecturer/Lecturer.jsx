@@ -9,7 +9,7 @@ const Lecturer = ({ children }) => {
         <div>
           <HeaderUser />
         </div>
-        <div className="mt-[70px] mb-[50px]">{children}</div>
+        <div className="">{children}</div>
         <div>
           <Footer />
         </div>
